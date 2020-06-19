@@ -2,22 +2,20 @@
   <!-- This example requires Tailwind CSS v1.4.0+ -->
   <div class="relative">
     <!-- Desktop Menu -->
-    <div class="w-full h-40 fixed flex justify-between items-center px-4 py-6 sm:px-64 md:justify-start md:space-x-10">
+    <div class="w-full h-40 fixed flex justify-between items-start px-4 pt-10 sm:px-8 md:justify-start md:space-x-10">
       <!-- Logo -->
       <div class="lg:w-0 lg:flex-1">
-        <a href="#" id="logo">
-          <span>
-            Paul
-            <br />Jihoon
-            <br />Lee
-          </span>
+        <a href="#" id="logo" class="px-2 inline-block font-light">
+          Paul
+          <br>jihoon
+          <br>Lee
         </a>
       </div>
-      <!-- Mobile Button -->
+      <!-- Mobile Hamburger -->
       <div class="-mr-2 -my-2 md:hidden">
         <button
           type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+          class="inline-flex items-center justify-center p-2 hover:text-gray-500 transition duration-150 ease-in-out"
         >
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -27,10 +25,9 @@
       <!-- Nav -->
 
       <div class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-        <nav id="main-nav" class="hidden md:flex space-x-10">
-          <a href="#" class="text-base leading-6 font-medium border-b-2 border-transparent hover:border-black hover:text-red-540 transition ease-in-out duration-150">ABOUT</a>
-          <a href="#" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">PORTFOLIO</a>
-          <a href="#" class="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">CONTACT</a>
+        <nav id="main-nav" class="hidden md:flex space-x-6">
+          <a href="#" class="text-base leading-6 font-medium border-b-2 border-transparent hover:border-black hover:text-red-500 transition ease-in-out duration-150">PORTFOLIO</a>
+          <a href="#" class="text-base leading-6 font-medium border-b-2 border-transparent hover:border-black hover:text-red-500 transition ease-in-out duration-150">CONTACT</a>
         </nav>
       </div>
     </div>
@@ -180,6 +177,11 @@
   </div>
 </template>
 
+<script>
+export default {
+}
+</script>
+
 <style scoped>
 #main-nav {
   font-family: "Mukta";
@@ -189,7 +191,18 @@
 }
 #logo {
   font-family: "Mukta";
-  font-size: 40px;
+  font-size: 35px;
   line-height:40px;
+}
+
+
+#logo {
+  border: 4px solid black;
+  box-shadow: 5px 5px black;
+  transition: all 0.3s ease-out;
+}
+#logo:hover {
+  box-shadow: 8px 8px black;
+  transform: scale(1.025);
 }
 </style>

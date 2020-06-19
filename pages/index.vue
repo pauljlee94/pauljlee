@@ -1,20 +1,42 @@
 <template>
   <div>
-    <section id="hero" class="h-screen pt-24 px-64">
-      <div id="intro" class="pt-40">
-        <h2>
-          Detail
-          <br />Oriented
-          <br />Web Developer
-        </h2>
+    <section id="hero" class="flex flex-col h-screen pt-48 pb-20 px-64 justify-between">
+      <div>
+        <div id="intro">
+          <h2>
+            Detail
+            <br />Oriented
+            <br />Web Developer
+          </h2>
+        </div>
+        <div id="about" class="flex mt-10">
+          <div class="flex-1">
+            <p>{{ $prismic.asText(home.about) }}</p>
+          </div>
+          <div class="flex-1">test</div>
+        </div>
       </div>
-      <div id="tagline">
-        <p>{{ $prismic.asText(home.tagline) }}</p>
+      <div>
+        <button @click="scrollTo()">Next Section</button>
       </div>
     </section>
-    <section class="px-64">
-      <div v-for="item in portfolio" :key="item.id" class="mt-10 testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
-        <h2>{{ $prismic.asText(item.data.title) }}</h2>
+    <section class="flex flex-col px-40 py-20">
+      <div v-for="(item,index) in portfolio" :key="item.id" class="flex justify-between mt-40">
+        <!-- Card -->
+        <template v-if="index % 2 == 0">
+          <nuxt-link to="/work/offerbarn" class="testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
+            <h2>{{ $prismic.asText(item.data.title) }}</h2>
+          </nuxt-link>
+          <!-- Text -->
+          <div>test</div>
+        </template>
+        <template v-else>
+          <!-- Text -->
+          <div>test</div>
+          <div class="testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
+            <h2>{{ $prismic.asText(item.data.title) }}</h2>
+          </div>
+        </template>
       </div>
     </section>
     <section id="heero" class="h-screen pt-16 bg-red-300">test</section>
@@ -61,19 +83,33 @@ export default {
   },
   methods: {
     animateUp() {
-      console.log(gsap)
-      gsap.from("#intro, .poop", { opacity: 0, y: -100, duration: 1, ease: "power4" })
+      gsap.from("#intro, .poop", {
+        opacity: 0,
+        y: -50,
+        duration: 1.5,
+        ease: "power4"
+      })
+      // gsap.from("#intro",{
+      //   y: '-100%',
+      //   duration: 1,
+      //   ease: "power4"
+      // })
     }
+  },
+  scrollTo() {
+    console.log('hello');
+    window.scrollTo(0, 1000);
   }
 }
 </script>
 
 <style>
 .testclass {
-  width: 300px;
-  height: 500px;
+  width: 400px;
+  height: 600px;
   box-shadow: 5px 5px;
   transition: all 0.3s ease-in-out;
+  border: 2px solid black;
   /* transition: transform 0.3s ease-in-out; */
 }
 .testclass:hover {
