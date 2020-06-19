@@ -13,7 +13,7 @@
       </div>
     </section>
     <section class="px-64">
-      <div v-for="item in portfolio" :key="item.id" class="mt-10 testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
+      <div v-in-view v-for="item in portfolio" :key="item.id" class="mt-10 testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
         <h2>{{ $prismic.asText(item.data.title) }}</h2>
       </div>
     </section>
@@ -22,15 +22,23 @@
 </template>
 
 <script>
+// Plugins
+import { gsap } from "gsap"
+
 // Components
 import Logo from "~/components/Logo.vue"
 
 // Directives
-import "@/directives/scroll"
+import "@/directives/in-view"
 
 export default {
   layout: "default",
   components: { Logo },
+  data() {
+    return {
+      loading: true
+    }
+  },
   async asyncData({ $prismic, error }) {
     try {
       const home = (await $prismic.api.getSingle("home")).data
@@ -46,6 +54,15 @@ export default {
       }
     } catch (e) {
       error({ statusCode: 404, message: "Page not found" })
+    }
+  },
+  mounted() {
+    this.animateUp()
+  },
+  methods: {
+    animateUp() {
+      console.log(gsap)
+      gsap.from("#intro, .poop", { opacity: 0, y: -100, duration: 1, ease: "power4" })
     }
   }
 }

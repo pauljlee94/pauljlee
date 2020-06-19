@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/prismic": "^1.2.1",
+    "gsap": "^3.3.3",
     "nuxt": "^2.0.0",
     "prismic-vue": "^2.0.1"
   },
