@@ -13,7 +13,7 @@
       </div>
     </section>
     <section class="px-64">
-      <div v-in-view v-for="item in portfolio" :key="item.id" class="mt-10 testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
+      <div v-for="item in portfolio" :key="item.id" class="mt-10 testclass" :style="{backgroundImage: 'url(' + item.data.image.url + ')'}">
         <h2>{{ $prismic.asText(item.data.title) }}</h2>
       </div>
     </section>
@@ -34,11 +34,11 @@ import "@/directives/in-view"
 export default {
   layout: "default",
   components: { Logo },
-  data() {
-    return {
-      loading: true
-    }
-  },
+  // data() {
+  //   return {
+  //     loading: true
+  //   }
+  // },
   async asyncData({ $prismic, error }) {
     try {
       const home = (await $prismic.api.getSingle("home")).data
