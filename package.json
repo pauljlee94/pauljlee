@@ -1,0 +1,21 @@
+{
+  "name": "pauljlee",
+  "version": "1.0.0",
+  "description": "My Personal Website",
+  "author": "Paul J. Lee",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/prismic": "^1.2.1",
+    "nuxt": "^2.0.0",
+    "prismic-vue": "^2.0.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0"
+  }
+}
