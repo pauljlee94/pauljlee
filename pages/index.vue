@@ -1,12 +1,13 @@
 <template>
   <div>
-    <section id="hero" class="flex flex-col h-screen pt-48 pb-20 px-64 justify-between">
+    <section id="hero" class="flex flex-col h-screen pt-48 max-w-xl justify-between mx-auto">
       <div>
         <div id="intro">
           <h2>
-            Detail
-            <br />Oriented
-            <br />Web Developer
+            <span class="underlineText">Web developer</span>
+            and
+            <span class="underlineText">software engineer</span> based out of
+            <span class="underlineText">Atlanta, Georgia</span>.
           </h2>
         </div>
         <div id="about" class="flex mt-10">
@@ -16,7 +17,7 @@
           <div class="flex-1">test</div>
         </div>
       </div>
-      <div>
+      <div class="mx-auto py-10">
         <button @click="scrollTo()">Next Section</button>
       </div>
     </section>
@@ -39,7 +40,6 @@
         </template>
       </div>
     </section>
-    <section id="heero" class="h-screen pt-16 bg-red-300">test</section>
   </div>
 </template>
 
@@ -61,6 +61,7 @@ export default {
   //     loading: true
   //   }
   // },
+  
   async asyncData({ $prismic, error }) {
     try {
       const home = (await $prismic.api.getSingle("home")).data
@@ -72,7 +73,7 @@ export default {
 
       return {
         home: home,
-        portfolio: portfolio
+        portfolio: portfolio,
       }
     } catch (e) {
       error({ statusCode: 404, message: "Page not found" })
@@ -87,19 +88,19 @@ export default {
         opacity: 0,
         y: -50,
         duration: 1.5,
-        ease: "power4"
+        ease: "power4",
       })
       // gsap.from("#intro",{
       //   y: '-100%',
       //   duration: 1,
       //   ease: "power4"
       // })
-    }
+    },
   },
   scrollTo() {
-    console.log('hello');
-    window.scrollTo(0, 1000);
-  }
+    console.log("hello")
+    window.scrollTo(0, 1000)
+  },
 }
 </script>
 
@@ -117,11 +118,20 @@ export default {
   box-shadow: 10px 10px;
 }
 
-#intro h2 {
+#intro h2,
+#intro span {
   font-family: "Cardo", serif;
-  font-size: 100px;
-  line-height: 100px;
-  border-bottom: 5px black solid;
-  text-shadow: -3px 0px 0px white, 3px 0px 0px white;
+  font-size: 50px;
+  line-height: 60px;
+  text-shadow: 2px 0px 0px white, -2px 0px 0px white, 0px 2px 0px white,
+    0px -2px 0px white, 0px 2px 0px white, 2px -2px 0px white,
+    -2px -2px 0px white, 2px 2px 0px white, -2px 2px 0px white;
+  /* text-shadow: -5px 0px 0px white, 5px 0px 0px white, 0px 5px 0px white;  */
+}
+
+.underlineText {
+  background-repeat: repeat-x;
+  background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAQAAAAnZu5uAAAAEElEQVR42mNk+M8ABYwkMAGbQQUBEvGWBAAAAABJRU5ErkJggg==);
+  background-position: left 55px;
 }
 </style>

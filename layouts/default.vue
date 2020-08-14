@@ -1,15 +1,15 @@
 <template>
   <!-- This example requires Tailwind CSS v1.4.0+ -->
   <div class="relative">
-    <!-- Desktop Menu -->
-    <div class="w-full h-40 fixed flex justify-between items-start px-4 pt-10 sm:px-8 md:justify-start md:space-x-10">
+    <!-- Header -->
+    <div class="w-full h-40 fixed flex justify-between items-start px-4 pt-10 sm:px-12 md:justify-start md:space-x-10">
       <!-- Logo -->
       <div class="lg:w-0 lg:flex-1">
-        <a href="#" id="logo" class="px-2 inline-block font-light">
+        <nuxt-link to="/" id="logo" class="px-2 inline-block font-light">
           Paul
           <br>jihoon
           <br>Lee
-        </a>
+        </nuxt-link>
       </div>
       <!-- Mobile Hamburger -->
       <div class="-mr-2 -my-2 md:hidden">
@@ -25,9 +25,9 @@
       <!-- Nav -->
 
       <div class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-        <nav id="main-nav" class="hidden md:flex space-x-6">
-          <a href="#" class="text-base leading-6 font-medium border-b-2 border-transparent hover:border-black hover:text-red-500 transition ease-in-out duration-150">PORTFOLIO</a>
-          <a href="#" class="text-base leading-6 font-medium border-b-2 border-transparent hover:border-black hover:text-red-500 transition ease-in-out duration-150">CONTACT</a>
+        <nav id="main-nav" class="hidden md:flex space-x-8">
+          <a href="#" class="text-lg leading-6 font-medium border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition ease-in-out duration-150">PORTFOLIO</a>
+          <a href="#" class="text-lg leading-6 font-medium border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition ease-in-out duration-150">CONTACT</a>
         </nav>
       </div>
     </div>
@@ -174,6 +174,7 @@
     <main>
       <nuxt />
     </main>
+    <footer class="flex h-40 justify-center items-center bg-red-200">© {{new Date().getFullYear()}} Paul J. Lee</footer>
   </div>
 </template>
 
@@ -186,13 +187,10 @@ export default {
 #main-nav {
   font-family: "Mukta";
 }
-#main-nav a {
-  line-height: 16px;
-}
 #logo {
   font-family: "Mukta";
-  font-size: 35px;
-  line-height:40px;
+  font-size: 30px;
+  line-height:30px;
 }
 
 
